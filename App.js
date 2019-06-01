@@ -3,9 +3,9 @@ import { View, Text } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
 class HomeScreen extends React.Component {
-    static navigationOptions = {
-      title: "Home"
-    };
+  static navigationOptions = {
+    title: "Home"
+  };
 
   render() {
     return (
@@ -19,7 +19,7 @@ class HomeScreen extends React.Component {
 }
 
 class DetailsScreen extends React.Component {
-static navigationOptions = {
+  static navigationOptions = {
     title: "Details"
   };
 
