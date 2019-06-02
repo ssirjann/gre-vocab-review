@@ -1,41 +1,15 @@
 import React from "react";
 import { View, Text } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
-
-class HomeScreen extends React.Component {
-  static navigationOptions = {
-    title: "Home"
-  };
-
-  render() {
-    return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Text onPress={() => this.props.navigation.push("Details")}>
-          Home Screen
-        </Text>
-      </View>
-    );
-  }
-}
-
-class DetailsScreen extends React.Component {
-  static navigationOptions = {
-    title: "Details"
-  };
-
-  render() {
-    return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Text>Details Screen</Text>
-      </View>
-    );
-  }
-}
+import Home from "./src/screens/Home";
+import MagooshCategories from "./src/screens/MagooshCategories";
+import MagooshList from "./src/screens/MagooshList";
 
 const AppNavigator = createStackNavigator(
   {
-    Home: HomeScreen,
-    Details: DetailsScreen
+    Home: Home,
+    MagooshCategory: MagooshCategories,
+    Magoosh: MagooshList
   },
   {
     initialRouteName: "Home",
