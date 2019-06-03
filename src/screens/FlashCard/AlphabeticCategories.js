@@ -1,7 +1,7 @@
 import React from "react";
 import { ScrollView } from "react-native";
-import CategoryCard from "../components/basic/TitleOnlyCard";
-import { getCategories } from "../helpers/Data/AlphabeticCategory";
+import CategoryCard from "../../components/basic/TitleOnlyCard";
+import { getCategories } from "../../helpers/Data/AlphabeticCategory";
 
 class AlphabeticCategories extends React.Component {
   static navigationOptions = {

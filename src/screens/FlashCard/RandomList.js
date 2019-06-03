@@ -1,6 +1,6 @@
 import React from "react";
-import FlashCardList from "../components/views/FlashCard/FlashCardList";
-import { getWords } from "../helpers/Data/RandomList";
+import FlashCardList from "../../components/views/FlashCard/FlashCardList";
+import { getWords } from "../../helpers/Data/RandomList";
 
 class RandomList extends React.Component {
   static navigationOptions = {

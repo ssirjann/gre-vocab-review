@@ -1,6 +1,6 @@
 import React from "react";
-import FlashCardList from "../components/views/FlashCard/FlashCardList";
-import data from "../constants/Words";
+import FlashCardList from "../../components/views/FlashCard/FlashCardList";
+import data from "../../constants/Words";
 
 class AllList extends React.Component {
   static navigationOptions = {

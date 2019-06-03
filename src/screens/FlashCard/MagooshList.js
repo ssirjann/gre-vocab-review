@@ -1,6 +1,6 @@
 import React from "react";
-import { getWordsForCategory } from "../helpers/Data/MagooshList";
-import FlashCardList from "../components/views/FlashCard/FlashCardList";
+import { getWordsForCategory } from "../../helpers/Data/MagooshList";
+import FlashCardList from "../../components/views/FlashCard/FlashCardList";
 
 class MagooshList extends React.Component {
   static navigationOptions = ({ navigation }) => {

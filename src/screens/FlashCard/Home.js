@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import CategoryCard from "../components/basic/TitleOnlyCard";
+import CategoryCard from "../../components/basic/TitleOnlyCard";
 
 class Home extends React.Component {
   static navigationOptions = {

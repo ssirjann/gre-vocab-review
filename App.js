@@ -1,13 +1,17 @@
 import React from "react";
-import { View, Text } from "react-native";
-import { createStackNavigator, createAppContainer } from "react-navigation";
-import Home from "./src/screens/Home";
-import MagooshCategories from "./src/screens/MagooshCategories";
-import MagooshList from "./src/screens/MagooshList";
-import AlphabeticCategories from "./src/screens/AlphabeticCategories";
-import AlphabeticList from "./src/screens/AlphabeticList";
-import RandomList from "./src/screens/RandomList";
-import AllList from "./src/screens/AllList";
+import { View } from "react-native";
+import {
+  createStackNavigator,
+  createAppContainer,
+  createDrawerNavigator
+} from "react-navigation";
+import Home from "./src/screens/FlashCard/Home";
+import MagooshCategories from "./src/screens/FlashCard/MagooshCategories";
+import MagooshList from "./src/screens/FlashCard/MagooshList";
+import AlphabeticCategories from "./src/screens/FlashCard/AlphabeticCategories";
+import AlphabeticList from "./src/screens/FlashCard/AlphabeticList";
+import RandomList from "./src/screens/FlashCard/RandomList";
+import AllList from "./src/screens/FlashCard/AllList";
 
 const AppNavigator = createStackNavigator(
   {
@@ -40,7 +44,12 @@ const AppNavigator = createStackNavigator(
   }
 );
 
-const AppContainer = createAppContainer(AppNavigator);
+const DrawerNavigator = createDrawerNavigator({
+  "Flash Cards": AppNavigator,
+  // Dictionary: AllWordsList
+});
+
+const AppContainer = createAppContainer(DrawerNavigator);
 
 export default class App extends React.Component {
   render() {
