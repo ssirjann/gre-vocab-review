@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import CategoryCard from "../components/home/TitleOnlyCard";
+import CategoryCard from "../components/basic/TitleOnlyCard";
 
 class Home extends React.Component {
   static navigationOptions = {
@@ -15,15 +15,15 @@ class Home extends React.Component {
           title="Magoosh Default"
         />
         <CategoryCard
-          onPress={() => this.props.navigation.navigate("Magoosh")}
+          onPress={() => this.props.navigation.navigate("AlphabeticCategory")}
           title="Alphabetic"
         />
         <CategoryCard
-          onPress={() => this.props.navigation.navigate("Magoosh")}
+          onPress={() => this.props.navigation.navigate("RandomWordsFlashCard")}
           title="Random 100 words"
         />
         <CategoryCard
-          onPress={() => this.props.navigation.navigate("Magoosh")}
+          onPress={() => this.props.navigation.navigate("AllWordsFlashCard")}
           title="All Words"
         />
       </View>

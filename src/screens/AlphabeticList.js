@@ -1,19 +1,22 @@
 import React from "react";
-import { getWordsForCategory } from "../helpers/Data/MagooshList";
+import { getWordsForCategory } from "../helpers/Data/AlphabeticCategory";
 import FlashCardList from "../components/views/FlashCard/FlashCardList";
 
-class MagooshList extends React.Component {
+class AlphabeticList extends React.Component {
   static navigationOptions = ({ navigation }) => {
+    const category = navigation.getParam("category");
+
     return {
-      title: navigation.getParam("category", "Magoosh List")
+      title: `${category.start} - ${category.end}`
     };
   };
+
   componentWillMount() {
     this.getItems();
   }
 
   getItems() {
-    let category = this.props.navigation.getParam("category");
+    const category = this.props.navigation.getParam("category");
 
     return getWordsForCategory(category);
   }
@@ -23,4 +26,4 @@ class MagooshList extends React.Component {
   }
 }
 
-export default MagooshList;
+export default AlphabeticList;

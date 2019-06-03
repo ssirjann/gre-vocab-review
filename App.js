@@ -4,12 +4,23 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 import Home from "./src/screens/Home";
 import MagooshCategories from "./src/screens/MagooshCategories";
 import MagooshList from "./src/screens/MagooshList";
+import AlphabeticCategories from "./src/screens/AlphabeticCategories";
+import AlphabeticList from "./src/screens/AlphabeticList";
+import RandomList from "./src/screens/RandomList";
+import AllList from "./src/screens/AllList";
 
 const AppNavigator = createStackNavigator(
   {
     Home: Home,
+
     MagooshCategory: MagooshCategories,
-    Magoosh: MagooshList
+    Magoosh: MagooshList,
+
+    AlphabeticCategory: AlphabeticCategories,
+    Alphabetic: AlphabeticList,
+
+    RandomWordsFlashCard: RandomList,
+    AllWordsFlashCard: AllList
   },
   {
     initialRouteName: "Home",
