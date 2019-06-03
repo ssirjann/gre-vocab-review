@@ -15,7 +15,9 @@ class MagooshCategories extends React.Component {
         {CategoryList.map((item, index) => (
           <CategoryCard
             onPress={() =>
-              this.props.navigation.navigate("Magoosh", { category: item })
+              this.props.navigation.navigate("MagooshFlashCards", {
+                category: item
+              })
             }
             key={index}
             title={item}

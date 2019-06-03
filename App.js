@@ -14,10 +14,10 @@ const AppNavigator = createStackNavigator(
     Home: Home,
 
     MagooshCategory: MagooshCategories,
-    Magoosh: MagooshList,
+    MagooshFlashCards: MagooshList,
 
     AlphabeticCategory: AlphabeticCategories,
-    Alphabetic: AlphabeticList,
+    AlphabeticFlashCards: AlphabeticList,
 
     RandomWordsFlashCard: RandomList,
     AllWordsFlashCard: AllList

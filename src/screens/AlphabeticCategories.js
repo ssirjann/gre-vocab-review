@@ -14,7 +14,7 @@ class AlphabeticCategories extends React.Component {
         {getCategories().map((item, index) => (
           <CategoryCard
             onPress={() =>
-              this.props.navigation.navigate("Alphabetic", { category: item })
+              this.props.navigation.navigate("AlphabeticFlashCards", { category: item })
             }
             key={index}
             title={`${item.start} - ${item.end}`}
