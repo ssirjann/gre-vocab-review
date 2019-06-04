@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "GreVocabReview",
+    "name": "Gre Vocab Review",
     "slug": "GreVocabReview",
-    "privacy": "public",
+    "privacy": "unlisted",
     "sdkVersion": "32.0.0",
     "platforms": [
       "ios",
