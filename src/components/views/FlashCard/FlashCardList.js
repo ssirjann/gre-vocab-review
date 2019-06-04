@@ -5,6 +5,7 @@ import { ScrollView } from "react-native";
 import TitleCard from "../../basic/TitleOnlyCard";
 import { shuffle } from "../../../helpers/Shuffle";
 import GestureRecognizer from "react-native-swipe-gestures";
+import FlashCard from "./FlashCard";
 
 class FlashCardList extends React.Component {
   constructor(props) {
@@ -13,8 +14,7 @@ class FlashCardList extends React.Component {
     this.shuffledKeys;
     this.setWordKeysOrder();
     this.state = {
-      currentIndex: 0,
-      hidden: true
+      currentIndex: 0
     };
   }
 
@@ -44,34 +44,24 @@ class FlashCardList extends React.Component {
             }
           }}
         >
-          {this.state.hidden
-            ? this.renderWordHidden()
-            : this.renderWordDetails()}
+          <FlashCard
+            word={this.getCurrentWord()}
+            wordDetail={this.getCurrentWordDetail()}
+            onPressAfterEnd={this.nextWord}
+          />
         </ScrollView>
       </GestureRecognizer>
     );
   }
 
-  renderWordHidden() {
-    const currentWord = this.shuffledKeys[this.state.currentIndex];
-
-    return <TitleCard title={currentWord} onPress={this.showWordDetails} />;
+  getCurrentWord() {
+    return this.shuffledKeys[this.state.currentIndex];
   }
 
-  showWordDetails = () => {
-    this.setState({ hidden: false });
-  };
-
-  renderWordDetails() {
+  getCurrentWordDetail() {
     const currentWord = this.shuffledKeys[this.state.currentIndex];
 
-    return (
-      <WordMeaning
-        word={currentWord}
-        wordDetail={this.props.words[currentWord]}
-        onPress={this.nextWord}
-      />
-    );
+    return this.props.words[currentWord];
   }
 
   nextWord = () => {
@@ -82,7 +72,7 @@ class FlashCardList extends React.Component {
       this.setWordKeysOrder();
     }
 
-    this.setState({ hidden: true, currentIndex: index });
+    this.setState({ currentIndex: index });
   };
 
   previousWord = () => {
@@ -92,7 +82,7 @@ class FlashCardList extends React.Component {
       index = 0;
     }
 
-    this.setState({ hidden: true, currentIndex: index });
+    this.setState({ currentIndex: index });
   };
 }
 
