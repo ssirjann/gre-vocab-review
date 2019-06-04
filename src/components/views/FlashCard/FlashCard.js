@@ -13,7 +13,9 @@ class FlashCard extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ hidden: true });
+    if (nextProps.word !== this.props.word) {
+      this.setState({ hidden: true });
+    }
   }
 
   render() {
@@ -33,7 +35,13 @@ class FlashCard extends React.Component {
   };
 
   renderWordDetails() {
-    const { word, wordDetail, onPressAfterEnd } = this.props;
+    const {
+      word,
+      wordDetail,
+      onPressAfterEnd = () => {
+        this.setState({ hidden: true });
+      }
+    } = this.props;
 
     return (
       <WordMeaning
@@ -48,10 +56,6 @@ class FlashCard extends React.Component {
 FlashCard.propTypes = {
   word: PropTypes.string.isRequired,
   wordDetail: PropTypes.object.isRequired
-};
-
-FlashCard.defaultProps = {
-  onPressAfterEnd: () => {}
 };
 
 export default FlashCard;
