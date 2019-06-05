@@ -1,28 +1,12 @@
 import data from "../../constants/Words";
 
-export function filteredData(
-  searchTerm = "",
-  { fullWord = false, startOnly = true, searchMeaning = false } = {}
-) {
+export function filteredData(searchTerm = "") {
   if (!searchTerm) return data;
+
   searchTerm = searchTerm.toLowerCase().trim();
 
   var keys = Object.keys(data).filter(word => {
-    let matchesConditions;
-
-    if (fullWord) {
-      matchesConditions = word == searchTerm;
-    } else if (startOnly) {
-      matchesConditions = word.startsWith(searchTerm);
-    } else {
-      matchesConditions = word.includes(searchTerm);
-    }
-
-    if (searchMeaning) {
-      matchesConditions = searchTermIsInMeaning(searchTerm, word);
-    }
-
-    return matchesConditions;
+    return word.startsWith(searchTerm);
   });
 
   var filteredWords = {};
@@ -34,14 +18,4 @@ export function filteredData(
   }
 
   return filteredWords;
-}
-
-function searchTermIsInMeaning(searchTerm, word) {
-  const meaning = data[word].meaning;
-console.log(meaning)
-  if (Array.isArray(meaning)) {
-    return meaning.some(x => x.meaning.includes(searchTerm));
-  }
-
-  return meaning.meaning.includes(searchTerm);
 }
