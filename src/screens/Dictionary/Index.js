@@ -4,7 +4,7 @@ import { FlatList, View } from "react-native";
 import FlashCard from "../../components/views/FlashCard/FlashCard";
 import ApplicationSearchBar from "../../components/basic/SearchBar";
 import { filteredData } from "../../helpers/Data/Filter";
-import { CheckBox, Divider } from "react-native-elements";
+import { Divider } from "react-native-elements";
 
 class AllWordList extends React.Component {
   static navigationOptions = {
@@ -16,7 +16,7 @@ class AllWordList extends React.Component {
 
     this.state = {
       data: data,
-      searchText: "",
+      searchText: ""
     };
   }
 
