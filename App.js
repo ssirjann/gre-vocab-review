@@ -12,8 +12,26 @@ import AlphabeticCategories from "./src/screens/FlashCard/AlphabeticCategories";
 import AlphabeticList from "./src/screens/FlashCard/AlphabeticList";
 import RandomList from "./src/screens/FlashCard/RandomList";
 import AllList from "./src/screens/FlashCard/AllList";
+import Dictionary from "./src/screens/Dictionary/Index";
 
-const AppNavigator = createStackNavigator(
+const NavigationOptions = {
+  initialRouteName: "Home",
+  headerLayoutPreset: "center",
+  headerMode: "float",
+  defaultNavigationOptions: {
+    headerStyle: {
+      backgroundColor: "#5388d0"
+    },
+    headerTitleStyle: {
+      letterSpacing: 2,
+      fontWeight: "normal"
+    },
+    headerRight: <View />,
+    headerTintColor: "#ffffff"
+  }
+};
+
+const FlashCardsStackNavigator = createStackNavigator(
   {
     Home: Home,
 
@@ -26,27 +44,19 @@ const AppNavigator = createStackNavigator(
     RandomWordsFlashCard: RandomList,
     AllWordsFlashCard: AllList
   },
+  NavigationOptions
+);
+
+const DictionaryStackNavigator = createStackNavigator(
   {
-    initialRouteName: "Home",
-    headerLayoutPreset: "center",
-    headerMode: "float",
-    defaultNavigationOptions: {
-      headerStyle: {
-        backgroundColor: "#5388d0"
-      },
-      headerTitleStyle: {
-        letterSpacing: 2,
-        fontWeight: "normal"
-      },
-      headerRight: <View />,
-      headerTintColor: "#ffffff"
-    }
-  }
+    Home: Dictionary
+  },
+  NavigationOptions
 );
 
 const DrawerNavigator = createDrawerNavigator({
-  "Flash Cards": AppNavigator,
-  // Dictionary: AllWordsList
+  Dictionary: DictionaryStackNavigator,
+  "Flash Cards": FlashCardsStackNavigator
 });
 
 const AppContainer = createAppContainer(DrawerNavigator);

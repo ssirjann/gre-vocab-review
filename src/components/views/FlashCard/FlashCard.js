@@ -27,7 +27,13 @@ class FlashCard extends React.Component {
   renderWordHidden() {
     const { word } = this.props;
 
-    return <TitleCard title={word} onPress={this.showWordDetails} />;
+    return (
+      <TitleCard
+        large={this.props.large}
+        title={word}
+        onPress={this.showWordDetails}
+      />
+    );
   }
 
   showWordDetails = () => {

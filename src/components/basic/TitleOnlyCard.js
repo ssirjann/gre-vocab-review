@@ -16,11 +16,11 @@ const styles = {
   }
 };
 
-const CategoryCard = ({ title, onPress }) => (
+const CategoryCard = ({ title, onPress, large = true }) => (
   <TouchableNativeFeedback onPress={onPress}>
-      <Card wrapperStyle={styles.wrapperStyle}>
-        <Text style={styles.text}>{title}</Text>
-      </Card>
+    <Card wrapperStyle={large ? styles.wrapperStyle : {}}>
+      <Text style={styles.text}>{title}</Text>
+    </Card>
   </TouchableNativeFeedback>
 );
 
