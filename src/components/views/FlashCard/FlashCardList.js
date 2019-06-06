@@ -1,8 +1,6 @@
 import React from "react";
-import WordMeaning from "../../basic/WordMeaningCard";
 import PropTypes from "prop-types";
-import { ScrollView } from "react-native";
-import TitleCard from "../../basic/TitleOnlyCard";
+import { ScrollView, Text } from "react-native";
 import { shuffle } from "../../../helpers/Shuffle";
 import GestureRecognizer from "react-native-swipe-gestures";
 import FlashCard from "./FlashCard";
@@ -49,6 +47,12 @@ class FlashCardList extends React.Component {
             wordDetail={this.getCurrentWordDetail()}
             onPressAfterEnd={this.nextWord}
           />
+          <Text style={{ marginTop: 10, marginRight: 20, textAlign: "right" }}>
+            <Text style={{ fontWeight: "bold" }}>
+              {this.state.currentIndex + 1}
+            </Text>{" "}
+            of {Object.keys(this.props.words).length}
+          </Text>
         </ScrollView>
       </GestureRecognizer>
     );

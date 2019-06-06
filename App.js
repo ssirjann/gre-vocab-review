@@ -14,6 +14,7 @@ import RandomList from "./src/screens/FlashCard/RandomList";
 import AllList from "./src/screens/FlashCard/AllList";
 import Dictionary from "./src/screens/Dictionary/Index";
 import Drawer from "./src/navigation/Drawer";
+import DrawerIcon from "./src/navigation/DrawerIcon";
 
 const NavigationOptions = {
   initialRouteName: "Home",
@@ -34,7 +35,10 @@ const NavigationOptions = {
 
 const FlashCardsStackNavigator = createStackNavigator(
   {
-    Home: Home,
+    Home: {
+      screen: Home,
+      navigationOptions: DrawerIcon
+    },
 
     MagooshCategory: MagooshCategories,
     MagooshFlashCards: MagooshList,
@@ -50,15 +54,15 @@ const FlashCardsStackNavigator = createStackNavigator(
 
 const DictionaryStackNavigator = createStackNavigator(
   {
-    Home: Dictionary
+    Home: { screen: Dictionary, navigationOptions: DrawerIcon }
   },
   NavigationOptions
 );
 
 const DrawerNavigator = createDrawerNavigator(
   {
-    Dictionary: DictionaryStackNavigator,
-    FlashCards: FlashCardsStackNavigator
+    FlashCards: FlashCardsStackNavigator,
+    Dictionary: DictionaryStackNavigator
   },
   { contentComponent: Drawer }
 );
