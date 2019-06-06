@@ -13,6 +13,7 @@ import AlphabeticList from "./src/screens/FlashCard/AlphabeticList";
 import RandomList from "./src/screens/FlashCard/RandomList";
 import AllList from "./src/screens/FlashCard/AllList";
 import Dictionary from "./src/screens/Dictionary/Index";
+import Drawer from "./src/navigation/Drawer";
 
 const NavigationOptions = {
   initialRouteName: "Home",
@@ -54,10 +55,13 @@ const DictionaryStackNavigator = createStackNavigator(
   NavigationOptions
 );
 
-const DrawerNavigator = createDrawerNavigator({
-  Dictionary: DictionaryStackNavigator,
-  "Flash Cards": FlashCardsStackNavigator
-});
+const DrawerNavigator = createDrawerNavigator(
+  {
+    Dictionary: DictionaryStackNavigator,
+    FlashCards: FlashCardsStackNavigator
+  },
+  { contentComponent: Drawer }
+);
 
 const AppContainer = createAppContainer(DrawerNavigator);
 
