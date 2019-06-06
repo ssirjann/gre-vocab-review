@@ -97,7 +97,11 @@ const styles = StyleSheet.create({
     height: 150
   },
   headerText: {
-    color: "#fff8f8"
+    marginTop: 120,
+    fontSize: 20,
+    color: "#fff8f8",
+    textAlign: "center",
+    backgroundColor: "#5388d0"
   },
   screenContainer: {
     paddingTop: 20,
@@ -123,6 +127,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#5388d0"
   },
   iconStyle: {
-      marginLeft: 15
+    marginLeft: 15
   }
 });
