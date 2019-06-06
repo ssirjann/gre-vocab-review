@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { NavigationActions } from "react-navigation";
 import { Text, View, StyleSheet, ImageBackground } from "react-native";
 import { Icon } from "react-native-elements";
+import { StatusBar } from "react-native";
 
 export default class drawerContentComponents extends Component {
   navigateToScreen = route => () => {
@@ -91,7 +92,8 @@ export default class drawerContentComponents extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "center"
+    alignItems: "center",
+    marginTop: StatusBar.currentHeight
   },
   headerContainer: {
     height: 150
