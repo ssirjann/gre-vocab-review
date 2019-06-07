@@ -12,7 +12,7 @@ import AlphabeticCategories from "./src/screens/FlashCard/AlphabeticCategories";
 import AlphabeticList from "./src/screens/FlashCard/AlphabeticList";
 import RandomList from "./src/screens/FlashCard/RandomList";
 import AllList from "./src/screens/FlashCard/AllList";
-import Dictionary from "./src/screens/Dictionary/Index";
+import Dictionary from "./src/screens/Dictionary/List";
 import Drawer from "./src/navigation/Drawer";
 import DrawerIcon from "./src/navigation/DrawerIcon";
 

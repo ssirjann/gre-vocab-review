@@ -8,7 +8,6 @@ import {
   TouchableNativeFeedback
 } from "react-native";
 import { Icon } from "react-native-elements";
-import { StatusBar } from "react-native";
 
 export default class drawerContentComponents extends Component {
   navigateToScreen = route => () => {
@@ -105,7 +104,6 @@ export default class drawerContentComponents extends Component {
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    marginTop: StatusBar.currentHeight
   },
   headerContainer: {
     height: 150
