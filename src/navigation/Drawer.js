@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import { NavigationActions } from "react-navigation";
-import { Text, View, StyleSheet, ImageBackground } from "react-native";
+import {
+  Text,
+  View,
+  StyleSheet,
+  ImageBackground,
+  TouchableNativeFeedback
+} from "react-native";
 import { Icon } from "react-native-elements";
 import { StatusBar } from "react-native";
 
@@ -24,66 +30,72 @@ export default class drawerContentComponents extends Component {
           </ImageBackground>
         </View>
         <View style={styles.screenContainer}>
-          <View
-            style={[
-              styles.screenStyle,
-              this.props.activeItemKey == "FlashCards"
-                ? styles.activeBackgroundColor
-                : null
-            ]}
+          <TouchableNativeFeedback
+            onPress={this.navigateToScreen("FlashCards")}
           >
-            <Icon
-              name="cards-playing-outline"
-              type="material-community"
-              iconStyle={[
-                styles.iconStyle,
-                this.props.activeItemKey == "FlashCards"
-                  ? styles.selectedTextStyle
-                  : null
-              ]}
-            />
-            <Text
+            <View
               style={[
-                styles.screenTextStyle,
+                styles.screenStyle,
                 this.props.activeItemKey == "FlashCards"
-                  ? styles.selectedTextStyle
+                  ? styles.activeBackgroundColor
                   : null
               ]}
-              onPress={this.navigateToScreen("FlashCards")}
             >
-              Flash Cards
-            </Text>
-          </View>
-          <View
-            style={[
-              styles.screenStyle,
-              this.props.activeItemKey == "Dictionary"
-                ? styles.activeBackgroundColor
-                : null
-            ]}
+              <Icon
+                name="cards-playing-outline"
+                type="material-community"
+                iconStyle={[
+                  styles.iconStyle,
+                  this.props.activeItemKey == "FlashCards"
+                    ? styles.selectedTextStyle
+                    : null
+                ]}
+              />
+              <Text
+                style={[
+                  styles.screenTextStyle,
+                  this.props.activeItemKey == "FlashCards"
+                    ? styles.selectedTextStyle
+                    : null
+                ]}
+              >
+                Flash Cards
+              </Text>
+            </View>
+          </TouchableNativeFeedback>
+          <TouchableNativeFeedback
+            onPress={this.navigateToScreen("Dictionary")}
           >
-            <Icon
-              name="md-book"
-              type="ionicon"
-              iconStyle={[
-                styles.iconStyle,
-                this.props.activeItemKey == "Dictionary"
-                  ? styles.selectedTextStyle
-                  : null
-              ]}
-            />
-            <Text
+            <View
               style={[
-                styles.screenTextStyle,
+                styles.screenStyle,
                 this.props.activeItemKey == "Dictionary"
-                  ? styles.selectedTextStyle
+                  ? styles.activeBackgroundColor
                   : null
               ]}
-              onPress={this.navigateToScreen("Dictionary")}
             >
-              Dictionary
-            </Text>
-          </View>
+              <Icon
+                name="md-book"
+                type="ionicon"
+                iconStyle={[
+                  styles.iconStyle,
+                  this.props.activeItemKey == "Dictionary"
+                    ? styles.selectedTextStyle
+                    : null
+                ]}
+              />
+              <Text
+                style={[
+                  styles.screenTextStyle,
+                  this.props.activeItemKey == "Dictionary"
+                    ? styles.selectedTextStyle
+                    : null
+                ]}
+              >
+                Dictionary
+              </Text>
+            </View>
+          </TouchableNativeFeedback>
         </View>
       </View>
     );
