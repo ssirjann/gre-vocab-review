@@ -19,6 +19,7 @@ import { AdMobBanner } from "react-native-admob";
 import QuizHome from "./src/screens/Quiz/QuizHome";
 import FullQuiz from "./src/screens/Quiz/FullQuiz";
 import { FooterAdUnitId } from "./src/constants/Ad";
+import { ScrollView } from "react-native-gesture-handler";
 
 const NavigationOptions = {
   initialRouteName: "Home",
@@ -97,15 +98,16 @@ const AppContainer = createAppContainer(DrawerNavigator);
 export default class App extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1 }}>
-        <AppContainer />
+      <React.Fragment>
+        <View style={{ flex: 1 }}>
+          <AppContainer />
+        </View>
         <AdMobBanner
           adSize="fullBanner"
           adUnitID={FooterAdUnitId}
-          testDevices={[AdMobBanner.simulatorId]}
           onAdFailedToLoad={error => console.warn(error)}
         />
-      </View>
+      </React.Fragment>
     );
   }
 }
