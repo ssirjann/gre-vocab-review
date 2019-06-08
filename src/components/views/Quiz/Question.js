@@ -44,10 +44,13 @@ class Question extends React.Component {
     );
   }
 
-  componentWillUpdate(nextProps) {
+  async componentWillUpdate(nextProps) {
     if (nextProps.word !== this.props.word) {
       this.setState({ selected: null });
       this.forceUpdate();
+      this.setState({
+        seenCount: await getWordsDetailViewedCount(this.props.word)
+      });
     }
   }
 
