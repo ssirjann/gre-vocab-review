@@ -4041,14 +4041,16 @@ export default {
     category: "Basic III",
     meaning: [
       {
-        meaning:
-          "young and inexperienced\nnoun: any new participant in some activity",
+        meaning: "young and inexperienced",
         sentence:
-          "Murray has years of experience in family practice, but he is just a fledgling in surgery.",
+          "Sarah was angry at the fledgling intern because he tried to teach her how to do her job.",
         type: "adjective"
       },
       {
-        type: "noun"
+        type: "noun",
+        meaning: "any new participant in some activity",
+        sentence:
+          "Murray has years of experience in family practice, but he is just a fledgling in surgery."
       }
     ]
   },
