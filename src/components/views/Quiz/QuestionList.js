@@ -1,8 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { ScrollView, Text, Alert } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 import { shuffle } from "../../../helpers/Shuffle";
 import Question from "./Question";
+import { Button, Icon } from "react-native-elements";
+import WatchAds from "../../basic/WatchAds";
 
 class QuizList extends React.Component {
   constructor(props) {
@@ -11,7 +13,9 @@ class QuizList extends React.Component {
     this.shuffledKeys;
     this.setWordKeysOrder();
     this.state = {
-      currentIndex: 0
+      currentIndex: 0,
+      wrongSelectedCount: 0,
+      playing: true
     };
   }
 
@@ -47,9 +51,53 @@ class QuizList extends React.Component {
           Score:
           <Text style={{ fontWeight: "bold" }}>{this.state.currentIndex}</Text>
         </Text>
+        {this.renderRetryButtons()}
       </ScrollView>
     );
   }
+
+  renderRetryButtons() {
+    const retryButton = (
+      <Button
+        onPress={this.restartQuiz}
+        title="Restart"
+        containerStyle={{
+          width: 200,
+          alignSelf: "center",
+          marginTop: 15
+        }}
+      />
+    );
+
+    if (this.state.wrongSelectedCount === 1 && !this.state.playing) {
+      return (
+        <View>
+          <WatchAds onWatchedAds={this.skipWord} />
+          {retryButton}
+        </View>
+      );
+    }
+
+    if (!this.state.playing) {
+      return retryButton;
+    }
+
+    return null;
+  }
+
+  skipWord = () => {
+    this.setState({ playing: true });
+    this.nextQuestion();
+  };
+
+  restartQuiz = () => {
+    this.setWordKeysOrder();
+    this.setState({
+      currentIndex: 0,
+      wrongSelectedCount: 0,
+      playing: true
+    });
+  };
 
   getCurrentWord() {
     return this.shuffledKeys[this.state.currentIndex];
@@ -72,7 +120,10 @@ class QuizList extends React.Component {
   };
 
   handleWrongOptionSelected = () => {
-    Alert.alert("This is wrong");
+    this.setState({
+      wrongSelectedCount: ++this.state.wrongSelectedCount,
+      playing: false
+    });
   };
 }
 

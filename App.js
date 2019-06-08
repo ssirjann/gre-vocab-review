@@ -18,6 +18,7 @@ import DrawerIcon from "./src/navigation/DrawerIcon";
 import { AdMobBanner } from "react-native-admob";
 import QuizHome from "./src/screens/Quiz/QuizHome";
 import FullQuiz from "./src/screens/Quiz/FullQuiz";
+import { FooterAdUnitId } from "./src/constants/Ad";
 
 const NavigationOptions = {
   initialRouteName: "Home",
@@ -72,7 +73,7 @@ const QuizStackNavigator = createStackNavigator(
 
 QuizStackNavigator.navigationOptions = ({ navigation }) => {
   let drawerLockMode = "unlocked";
-  
+
   if (navigation.state.routes.find(route => route.routeName === "FullQuiz")) {
     drawerLockMode = "locked-closed";
   }
@@ -100,7 +101,7 @@ export default class App extends React.Component {
         <AppContainer />
         <AdMobBanner
           adSize="fullBanner"
-          adUnitID="ca-app-pub-2322736808861025/9286068825"
+          adUnitID={FooterAdUnitId}
           testDevices={[AdMobBanner.simulatorId]}
           onAdFailedToLoad={error => console.warn(error)}
         />

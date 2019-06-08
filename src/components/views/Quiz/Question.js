@@ -44,6 +44,13 @@ class Question extends React.Component {
     );
   }
 
+  componentWillUpdate(nextProps) {
+    if (nextProps.word !== this.props.word) {
+      this.setState({ selected: null });
+      this.forceUpdate();
+    }
+  }
+
   renderOptions() {
     return (
       <View>
@@ -62,7 +69,7 @@ class Question extends React.Component {
           You have studied this word{" "}
           <Text style={{ fontWeight: "bold" }}>
             {this.state.seenCount}{" "}
-            {this.state.seenCount === 1 ? "time" : "times"}
+            {this.state.seenCount == 1 ? "time" : "times"}
           </Text>
         </Text>
       </View>
