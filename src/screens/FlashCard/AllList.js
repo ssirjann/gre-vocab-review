@@ -7,10 +7,6 @@ class AllList extends React.Component {
     title: "All Words"
   };
 
-  componentWillMount() {
-    this.getItems();
-  }
-
   getItems() {
     return data;
   }

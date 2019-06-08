@@ -11,10 +11,6 @@ class AlphabeticList extends React.Component {
     };
   };
 
-  componentWillMount() {
-    this.getItems();
-  }
-
   getItems() {
     const category = this.props.navigation.getParam("category");
 

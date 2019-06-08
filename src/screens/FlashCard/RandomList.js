@@ -7,10 +7,6 @@ class RandomList extends React.Component {
     title: "Random 100 Words"
   };
 
-  componentWillMount() {
-    this.getItems();
-  }
-
   getItems() {
     return getWords(100);
   }

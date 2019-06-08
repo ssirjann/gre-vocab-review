@@ -8,10 +8,7 @@ class MagooshList extends React.Component {
       title: navigation.getParam("category", "Magoosh List")
     };
   };
-  componentWillMount() {
-    this.getItems();
-  }
-
+ 
   getItems() {
     let category = this.props.navigation.getParam("category");
 
