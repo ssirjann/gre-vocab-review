@@ -95,6 +95,37 @@ export default class drawerContentComponents extends Component {
               </Text>
             </View>
           </TouchableNativeFeedback>
+          <TouchableNativeFeedback onPress={this.navigateToScreen("Quiz")}>
+            <View
+              style={[
+                styles.screenStyle,
+                this.props.activeItemKey == "Quiz"
+                  ? styles.activeBackgroundColor
+                  : null
+              ]}
+            >
+              <Icon
+                name="tasklist"
+                type="octicon"
+                iconStyle={[
+                  styles.iconStyle,
+                  this.props.activeItemKey == "Quiz"
+                    ? styles.selectedTextStyle
+                    : null
+                ]}
+              />
+              <Text
+                style={[
+                  styles.screenTextStyle,
+                  this.props.activeItemKey == "Quiz"
+                    ? styles.selectedTextStyle
+                    : null
+                ]}
+              >
+                Quiz
+              </Text>
+            </View>
+          </TouchableNativeFeedback>
         </View>
       </View>
     );

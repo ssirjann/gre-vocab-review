@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, TouchableNativeFeedback, View } from "react-native";
 import { Card } from "react-native-elements";
+import { handleWordDetailView } from "../../helpers/DataViewCounts";
 
 const styles = {
   title: {
@@ -19,12 +20,17 @@ const styles = {
     fontStyle: "italic"
   },
   meaningWrapper: {
-      marginTop: 20
+    marginTop: 20
   }
 };
 
 const WordMeaning = ({ word, wordDetail, onPress }) => (
-  <TouchableNativeFeedback onPress={onPress}>
+  <TouchableNativeFeedback
+    onPress={() => {
+      handleWordDetailView(word);
+      onPress();
+    }}
+  >
     <Card title={word} titleStyle={styles.title}>
       {<Meaning meaning={wordDetail.meaning} />}
     </Card>

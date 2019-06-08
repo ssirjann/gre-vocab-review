@@ -16,9 +16,9 @@ const styles = {
   }
 };
 
-const CategoryCard = ({ title, onPress, large = true }) => (
+const CategoryCard = ({ title, onPress, large = true, ...props }) => (
   <TouchableNativeFeedback onPress={onPress}>
-    <Card wrapperStyle={large ? styles.wrapperStyle : {}}>
+    <Card wrapperStyle={large ? styles.wrapperStyle : {}} {...props}>
       <Text style={styles.text}>{title}</Text>
     </Card>
   </TouchableNativeFeedback>
