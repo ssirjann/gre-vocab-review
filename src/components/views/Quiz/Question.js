@@ -1,7 +1,7 @@
 import React from "react";
 import { TouchableNativeFeedback, Text, View, StyleSheet } from "react-native";
 import { Card } from "react-native-elements";
-import { shuffle } from "../../../helpers/Shuffle";
+import { getWordsDetailViewedCount } from "../../../helpers/DataViewCounts";
 
 const styles = StyleSheet.create({
   option: { padding: 20, borderColor: "#ccc", borderWidth: 1 },
@@ -20,8 +20,15 @@ class Question extends React.Component {
     super(props);
 
     this.state = {
-      selected: null
+      selected: null,
+      seenCount: 0
     };
+  }
+
+  async componentDidMount() {
+    this.setState({
+      seenCount: await getWordsDetailViewedCount(this.props.word)
+    });
   }
 
   render() {
@@ -51,6 +58,13 @@ class Question extends React.Component {
             </View>
           </TouchableNativeFeedback>
         ))}
+        <Text style={{ textAlign: "right", marginRight: 20, marginTop: 10 }}>
+          You have studied this word{" "}
+          <Text style={{ fontWeight: "bold" }}>
+            {this.state.seenCount}{" "}
+            {this.state.seenCount === 1 ? "time" : "times"}
+          </Text>
+        </Text>
       </View>
     );
   }

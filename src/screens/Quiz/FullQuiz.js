@@ -3,10 +3,8 @@ import React from "react";
 import { getFullQuizQuestions } from "../../helpers/QuizData/FullQuiz";
 
 class FullQuiz extends React.Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      title: "All Words Quiz"
-    };
+  static navigationOptions = {
+    title: "All Words Quiz"
   };
 
   getItems = () => {

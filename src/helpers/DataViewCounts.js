@@ -4,7 +4,7 @@ export const handleWordDetailView = async word => {
   try {
     let timesViewed = await AsyncStorage.getItem(word);
     timesViewed = timesViewed ? ++timesViewed : 1;
-    AsyncStorage.setItem(word, timesViewed);
+    AsyncStorage.setItem(word, timesViewed.toString());
   } catch (e) {}
 };
 

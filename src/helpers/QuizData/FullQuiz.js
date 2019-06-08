@@ -19,7 +19,7 @@ function getQuestionForWord(word) {
   let options = [{ meaning: data[word].meaning, isCorrect: true }];
   while (randomIndices.length < 3) {
     let r = Math.floor(Math.random() * size);
-    console.log(r);
+
     const currentWord = keys[r];
 
     if (randomIndices.includes(r) || currentWord === word) continue;

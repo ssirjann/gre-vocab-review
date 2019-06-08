@@ -70,6 +70,18 @@ const QuizStackNavigator = createStackNavigator(
   NavigationOptions
 );
 
+QuizStackNavigator.navigationOptions = ({ navigation }) => {
+  let drawerLockMode = "unlocked";
+  
+  if (navigation.state.routes.find(route => route.routeName === "FullQuiz")) {
+    drawerLockMode = "locked-closed";
+  }
+
+  return {
+    drawerLockMode
+  };
+};
+
 const DrawerNavigator = createDrawerNavigator(
   {
     FlashCards: FlashCardsStackNavigator,
