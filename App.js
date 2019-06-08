@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 import {
   createStackNavigator,
   createAppContainer,
@@ -15,6 +15,7 @@ import AllList from "./src/screens/FlashCard/AllList";
 import Dictionary from "./src/screens/Dictionary/List";
 import Drawer from "./src/navigation/Drawer";
 import DrawerIcon from "./src/navigation/DrawerIcon";
+import { AdMobBanner } from "react-native-admob";
 
 const NavigationOptions = {
   initialRouteName: "Home",
@@ -71,6 +72,16 @@ const AppContainer = createAppContainer(DrawerNavigator);
 
 export default class App extends React.Component {
   render() {
-    return <AppContainer />;
+    return (
+      <View style={{ flex: 1 }}>
+        <AppContainer />
+        <AdMobBanner
+          adSize="fullBanner"
+          adUnitID="ca-app-pub-2322736808861025/9286068825"
+          testDevices={[AdMobBanner.simulatorId]}
+          onAdFailedToLoad={error => console.warn(error)}
+        />
+      </View>
+    );
   }
 }
