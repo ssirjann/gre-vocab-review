@@ -18,22 +18,6 @@ class QuizHome extends React.Component {
           title="Start Quiz"
         />
         <Divider />
-        <CategoryCard
-          large={false}
-          onPress={() => Alert.alert("This is you scores")}
-          title="My Scores"
-        />
-        <Text
-          style={{
-            marginTop: 70,
-            color: "#4caf50",
-            fontSize: 20,
-            textAlign: "right",
-            marginRight: 20
-          }}
-        >
-          High Score: <Text style={{ fontWeight: "bold" }}>123</Text>
-        </Text>
       </ScrollView>
     );
   }
