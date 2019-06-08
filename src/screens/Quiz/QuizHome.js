@@ -14,7 +14,7 @@ class QuizHome extends React.Component {
       <ScrollView>
         <CategoryCard
           large={true}
-          onPress={() => Alert.alert("Your Quiz begins now")}
+          onPress={() => this.props.navigation.navigate("FullQuiz")}
           title="Start Quiz"
         />
         <Divider />

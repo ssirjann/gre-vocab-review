@@ -17,6 +17,7 @@ import Drawer from "./src/navigation/Drawer";
 import DrawerIcon from "./src/navigation/DrawerIcon";
 import { AdMobBanner } from "react-native-admob";
 import QuizHome from "./src/screens/Quiz/QuizHome";
+import FullQuiz from "./src/screens/Quiz/FullQuiz";
 
 const NavigationOptions = {
   initialRouteName: "Home",
@@ -63,15 +64,16 @@ const DictionaryStackNavigator = createStackNavigator(
 
 const QuizStackNavigator = createStackNavigator(
   {
-    Home: { screen: QuizHome, navigationOptions: DrawerIcon }
+    Home: { screen: QuizHome, navigationOptions: DrawerIcon },
+    FullQuiz: FullQuiz
   },
   NavigationOptions
 );
 
 const DrawerNavigator = createDrawerNavigator(
   {
-    // FlashCards: FlashCardsStackNavigator,
-    // Dictionary: DictionaryStackNavigator,
+    FlashCards: FlashCardsStackNavigator,
+    Dictionary: DictionaryStackNavigator,
     Quiz: QuizStackNavigator
   },
   { contentComponent: Drawer }
