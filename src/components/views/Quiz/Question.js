@@ -6,13 +6,12 @@ import { getWordsDetailViewedCount } from "../../../helpers/DataViewCounts";
 const styles = StyleSheet.create({
   option: { padding: 20, borderColor: "#ccc", borderWidth: 1 },
   wrongOption: {
-    backgroundColor: "#f44336",
-    color: "#fff"
+    backgroundColor: "#f44336"
   },
   correctOption: {
-    backgroundColor: "#4caf50",
-    color: "#fff"
+    backgroundColor: "#4caf50"
   }
+
 });
 
 class Question extends React.Component {
@@ -33,14 +32,23 @@ class Question extends React.Component {
 
   render() {
     return (
-      <Card
-        dividerStyle={{ display: "none" }}
-        title={this.props.word}
-        containerStyle={{ padding: 5, margin: 5 }}
-        titleStyle={{ fontSize: 25 }}
-      >
+      <View style={{ padding: 5, margin: 5 }}>
+        <Text
+          style={[
+            {
+              fontSize: 25,
+              textAlign: "center",
+              fontWeight: "bold",
+              letterSpacing: 1,
+              color: "#000"
+            },
+            styles.option
+          ]}
+        >
+          {this.props.word}
+        </Text>
         {this.renderOptions()}
-      </Card>
+      </View>
     );
   }
 
@@ -68,7 +76,7 @@ class Question extends React.Component {
             </View>
           </TouchableNativeFeedback>
         ))}
-        <Text style={{ textAlign: "right", marginRight: 20, marginTop: 10 }}>
+        <Text style={{ textAlign: "right", marginRight: 10, marginTop: 20 }}>
           You have studied this word{" "}
           <Text style={{ fontWeight: "bold" }}>
             {this.state.seenCount}{" "}
@@ -110,11 +118,18 @@ class Question extends React.Component {
 const Option = ({ option }) => {
   if (Array.isArray(option.meaning)) {
     return option.meaning.map((meaning, i) => (
-      <Text key={i}>- {meaning.meaning}</Text>
+      <OptionText text={meaning.meaning} key={i} />
     ));
   }
 
-  return <Text>- {option.meaning.meaning}</Text>;
+  return <OptionText text={option.meaning.meaning} />;
 };
+
+const OptionText = ({ text }) => (
+  <View style={{ flexDirection: "row" }}>
+    <Text>{"\u2022"}</Text>
+    <Text style={{ flex: 1, paddingLeft: 5 }}>{text}</Text>
+  </View>
+);
 
 export default Question;
