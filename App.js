@@ -15,12 +15,10 @@ import AllList from "./src/screens/FlashCard/AllList";
 import Dictionary from "./src/screens/Dictionary/List";
 import Drawer from "./src/navigation/Drawer";
 import DrawerIcon from "./src/navigation/DrawerIcon";
-import { AdMobBanner } from "react-native-admob";
 import QuizHome from "./src/screens/Quiz/QuizHome";
 import FullQuiz from "./src/screens/Quiz/FullQuiz";
-import { FooterAdUnitId } from "./src/constants/Ad";
-import { ScrollView } from "react-native-gesture-handler";
 import SplashScreen from "react-native-splash-screen";
+import FooterAd from "./src/components/basic/FooterAd";
 
 const NavigationOptions = {
   initialRouteName: "Home",
@@ -107,6 +105,7 @@ export default class App extends React.Component {
         <View style={{ flex: 1 }}>
           <AppContainer />
         </View>
+        <FooterAd />
       </React.Fragment>
     );
   }
