@@ -102,11 +102,6 @@ export default class App extends React.Component {
         <View style={{ flex: 1 }}>
           <AppContainer />
         </View>
-        <AdMobBanner
-          adSize="fullBanner"
-          adUnitID={FooterAdUnitId}
-          onAdFailedToLoad={error => console.warn(error)}
-        />
       </React.Fragment>
     );
   }
