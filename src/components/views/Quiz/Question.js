@@ -111,7 +111,7 @@ class Question extends React.Component {
       this.props.onWrongOptionSelected();
     };
 
-    setTimeout(action, 1500);
+    setTimeout(action, 700);
   };
 }
 
