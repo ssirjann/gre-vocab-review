@@ -20,6 +20,7 @@ import QuizHome from "./src/screens/Quiz/QuizHome";
 import FullQuiz from "./src/screens/Quiz/FullQuiz";
 import { FooterAdUnitId } from "./src/constants/Ad";
 import { ScrollView } from "react-native-gesture-handler";
+import SplashScreen from "react-native-splash-screen";
 
 const NavigationOptions = {
   initialRouteName: "Home",
@@ -96,6 +97,10 @@ const DrawerNavigator = createDrawerNavigator(
 const AppContainer = createAppContainer(DrawerNavigator);
 
 export default class App extends React.Component {
+  componentDidMount() {
+    SplashScreen.hide();
+  }
+
   render() {
     return (
       <React.Fragment>
